@@ -6,7 +6,7 @@
   3. Query of author names via ORCID API
   4. Perform Python-Script that compares author profiles 
   5. Add ORCID-ID to author csv file
-  6. Add the ORCID-IDs to the knowledge graph in GraphDB via SPARQL CONSTRUCT and SPARQL INSERT.
+  6. Add the ORCID-IDs to the knowledge graph in GraphDB using SPARQL CONSTRUCT and SPARQL INSERT.
 
 
 #### Knowledge Graph Construction:
