@@ -17,7 +17,7 @@
   6. Load csv-files into GraphDB and transform the table data into RDF using SPARQl CONSTRUCT and SPART INSERT queries.
   
   
- #### Authore Diambiguation
+ #### Authore Diambiguation:
  1. Calculate the LDA vectors for the data sets (with the LDA model)
  2. Create a txt-file that contains all the necessary information for the author disambiguation.
  3. Perform the Diambiguation
