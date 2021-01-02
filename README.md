@@ -14,7 +14,7 @@
   3. Perform authors disambiguation
   4. Name the resources with unique URIs
   5. Create a CSV file with the metadata entries and URIs for each class of entities. 
-  6. Load csv-files into GraphDB and transform the table data into RDF using SPARQl CONSTRUCT and SPART INSERT queries.
+  6. Load csv-files into GraphDB and transform the table data into RDF using SPARQl CONSTRUCT and SPARQl INSERT queries.
   
   
  #### Authore Diambiguation:
