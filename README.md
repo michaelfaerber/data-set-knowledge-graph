@@ -4,8 +4,9 @@
   1. Create the authors profiles from the knowledge graph using a SAPRQL query. 
   2. SPARQL query via the MAKG SPARQL endpoint to get the title of the linked papers.
   3. Query of author names via ORCID API
-  4. Perform Python-Script that compares authors' profiles 
-  5. Add ORCID ID to author csv file
+  4. Perform Python-Script that compares author profiles 
+  5. Add ORCID-ID to author csv file
+  6. Add the ORCID-IDs to the knowledge graph in GraphDB via SPARQL CONSTRUCT and SPARQL INSERT.
 
 
 #### Knowledge Graph Construction:
