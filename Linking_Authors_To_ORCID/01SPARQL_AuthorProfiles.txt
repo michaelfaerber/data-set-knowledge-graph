@@ -22,6 +22,7 @@ where {
     ?dataset dct:title ?title . 
     ?dataset dct:creator ?creator.
     ?creator foaf:name ?creatorName .
+    ?creator rdf:type foaf:Person .
     optional { ?dataset dct:creator ?coAuthorsid .
                ?coAuthorsid foaf:name ?coAuthors }
 
