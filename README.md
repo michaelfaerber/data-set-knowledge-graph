@@ -10,6 +10,7 @@ The constructed dataset knowledge graph (DSKG) is publicly available at [http://
 We use the following database with metadata about datasets for the creation of the DSKG: 
 1. We consider a subset of the OpenAIRE Research Graph dump which contains metadata about datasets. The used dump is created with this code: [https://github.com/michaelfaerber/OpenAIRE](https://github.com/michaelfaerber/OpenAIRE).
 2. Wikidata: Sparql querie, endpoit & relevante Klassen Liste. 
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
 
 ### Identify publications from the MAKG which contain mentions of datasets:
 
