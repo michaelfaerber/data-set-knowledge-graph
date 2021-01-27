@@ -6,6 +6,10 @@ We identify all publications out of 146 million scientific publications which co
 The constructed dataset knowledge graph (DSKG) is publicly available at [http://dskg.org](http://dskg.org).
 
 ## Knowledge Graph Construction:
+
+### Identify publications from the MAKG which contain mentions of datasets:
+
+### Transform tabular metadata to RDF and assign URIs for entities:
   1. Modify metadata entries according to DCTA (e.g. byteSize). Classification of metadata entities.
   2. Create csv-beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet (Beta_Version_DSKG_NoIDs.csv)
   3. Perform authors disambiguation
@@ -18,7 +22,7 @@ The constructed dataset knowledge graph (DSKG) is publicly available at [http://
  2. Create a txt-file that contains all the necessary information for the author disambiguation.
  3. Perform the Diambiguation
   
-## Linking the authors to ORCID:
+## Linking the authors of the DSKG to ORCID:
   1. Create the authors profiles from the knowledge graph using a SAPRQL query. 
   2. SPARQL query via the MAKG SPARQL endpoint to get the title of the linked papers.
   3. Query of author names via ORCID API
