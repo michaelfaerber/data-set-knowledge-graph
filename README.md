@@ -1,4 +1,7 @@
-# dataset-knowledge-graph
+# Dataset Knowledge Graph (DSKG)
+
+### Abstract
+We present an approach for constructing an RDF knowledge graph for Datasets. The constructed dataset knowledge graph (DSKG) is publicly available at [http://http://dskg.org](http://http://dskg.org).
 
 #### Linking the authors to ORCID:
   1. Create the authors profiles from the knowledge graph using a SAPRQL query. 
