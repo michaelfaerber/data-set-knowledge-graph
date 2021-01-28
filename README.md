@@ -20,7 +20,7 @@ We implemented the data transformation of the original metadata using SPARQL CON
   1. Modify metadata entries according to DCTA (e.g. byteSize). Classification of metadata entities.
   2. Create csv-beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet (Beta_Version_DSKG_NoIDs.csv)
   3. Perform authors disambiguation
-  4. Name the resources with unique URIs
+  4. Name the resources with unique URIs (use results from disambiguation)
   5. Create a CSV file with the metadata entries and URIs for each class of entities. 
   6. Load csv-files into GraphDB and transform the table data into RDF using SPARQl CONSTRUCT and SPARQl INSERT queries.
   
