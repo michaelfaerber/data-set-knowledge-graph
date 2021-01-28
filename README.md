@@ -19,15 +19,18 @@ We implemented the data transformation of the original metadata using SPARQL CON
 
   1. Modify metadata entries according to DCTA (e.g. byteSize). Classification of metadata entities.
   2. Create csv-beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet (Beta_Version_DSKG_NoIDs.csv)
-  3. Perform authors disambiguation
-  4. Name the resources with unique URIs (use results from disambiguation)
-  5. Create a CSV file with the metadata entries and URIs for each class of entities. 
-  6. Load csv-files into GraphDB and transform the table data into RDF using SPARQl CONSTRUCT and SPARQl INSERT queries.
+  3. FOS
+  4. Perform author disambiguation
+  5. Name the resources with unique URIs (use results from disambiguation)
+  6. Create a CSV file with the metadata entries and URIs for each class of entities. 
+  7. Load csv-files into a [GraphDB]((https://graphdb.ontotext.com) Repository and transform the table data into RDF using SPARQl CONSTRUCT(link) and SPARQl INSERT(link) queries.
+  INSERT: SERVICE <ontorefine:9999999999999> the SPARQL endpoint
   
 ### Authore Diambiguation:
  1. Calculate the LDA vectors for the data sets (with the LDA model)
- 2. Create a txt-file that contains all the necessary information for the author disambiguation.
- 3. Perform the Diambiguation
+ 2. Load all needed information for the disambiguation into the csv-file of the beta version of the DSKG
+ 3. Create a txt-file that contains all the necessary information for the author disambiguation.
+ 4. Perform the Diambiguation
   
 ## Linking the authors of the DSKG to ORCID:
   1. Create the authors profiles from the knowledge graph using a SAPRQL query. 
