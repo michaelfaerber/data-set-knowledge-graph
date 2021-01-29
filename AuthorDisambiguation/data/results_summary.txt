@@ -1,3 +1,0 @@
-Total comparisons: 84
-Total positives: 76: 0.9047619047619048
-Total negatives: 8: 0.09523809523809523
