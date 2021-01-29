@@ -29,7 +29,9 @@ We implemented the data transformation of the original metadata using SPARQL CON
   3. In GraphDB: Create beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet. The creation of the dskg-beta-version is realized with SPARQL CONSTRUCT and INSERT ([``SPARQL_CONSTRUCT_openAIRE_beta_version.txt``](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_openAIRE_beta_version.txt) and  [``SPARQL_CONSTRUCT_wikidata_beta_version.txt``](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_wikidata_beta_version.txt) queries for the OpenAIRE and Wikidata dataset in tabular form (csv-files). For the further steps, the beta version of the dskg is compiled as a table form using a [SPARQL SELECT](dskg-construction/dskg_table_format.txt) query in GraphDB.
   4. Use the file ``PaperFieldsOfStudy.txt`` from the MAG-dump, the dskg-beta-version and the Jupyter Notebook [``fields_of_application.ipynb``](dskg-construction/fields_of_application.ipynb) to determine the fields of applications of the datasets and add it to the dskg-beta-version.
   5. Perform the author disambiguation explained in the paragraph below.
-  6. Name the resources with unique URIs (use results from disambiguation)
+  6. Assignment of unique URIs for the entities in the dskg-beta-version (uses the results of the performed author disambiguation): [assign_uris_for_entities.py](dskg-construction/assign_uris_for_entities.py)
+
+  7.
   7. Create a CSV file with the metadata entries and URIs for each class of entities.
   8. Load csv-files into a [GraphDB]((https://graphdb.ontotext.com) Repository and transform the table data into RDF using SPARQl CONSTRUCT(link) and SPARQl INSERT(link) queries.
   INSERT: SERVICE <ontorefine:9999999999999> the SPARQL endpoint
