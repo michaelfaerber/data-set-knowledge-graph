@@ -6,13 +6,13 @@ We identify all publications out of 146 million scientific publications which co
 The constructed dataset knowledge graph (DSKG) is publicly available at [http://dskg.org](http://dskg.org).
 Folgende Skripte um KG semi-automatisch zu erstellen.
 
-## Knowledge Graph Construction:
+## Knowledge Graph Construction
 
 We use the following database with metadata about datasets for the creation of the DSKG: 
 1. OpenAIRE-Dataset: We consider a subset of the [OpenAIRE Research Graph dump](https://zenodo.org/record/3516918) which contains metadata about datasets. The used dump is created with this code: [https://github.com/michaelfaerber/OpenAIRE](https://github.com/michaelfaerber/OpenAIRE).
 2. Wikidata-Dataset: We use instances of the classes of [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) which represent datasets. The instances of the [relevant classes](wikidata-dataset/SPARQL_wikidata_dataset.txt) and their properties can be accessed based on semantic queries via the publicly available [Wikidata SPARQL endpoint](https://query.wikidata.org).
 
-### Identify publications from the MAG which contain mentions of datasets:
+### Identify publications from the MAG which contain mentions of datasets
 We use a string-based algorithm to detect mentions of datasets in papers. We use the files containing the paper abstracts and citation context of the MAG-dump for the matching. For dataset from OpenAIRE, we use the following metadata information to recognize dataset in the files: [``title``](string-matching-MAKG-dumps/data/OpenAIRE_title.txt), [``originalId``](string-matching-MAKG-dumps/data/OpenAIRE_originalId.txt) and [``doi``](string-matching-MAKG-dumps/data/OpenAIRE_doi.txt). For dataset from Wikidata, we use: [``itemLabel``](string-matching-MAKG-dumps/data/Wikidata_itemLabel.txt), [``altLabel``](string-matching-MAKG-dumps/data/WikidataAltLabel.txt), [``officialWebsite``](string-matching-MAKG-dumps/data/Wikidata_owebsite.txt), [``workURL``](string-matching-MAKG-dumps/data/Wikidata_workURL.txt) and [``url``](string-matching-MAKG-dumps/data/Wikidata_url.txt).
 
   1. The first step is to filter out the most frequently used English words for the match. The following Script calculates this not considered intersection: [``match_text_corpus.py``](string-matching-MAKG-dumps/match_text_corpus.py)
@@ -21,7 +21,7 @@ We use a string-based algorithm to detect mentions of datasets in papers. We use
   4. The following script inserts the found matches into these initial datasets (csv-files) of the OpenAIRE and Wikidata dataset: [``MAKG_links_in_csv.py``](string-matching-MAKG-dumps/MAKG_links_in_csv.py). In the following we will only use the metadata records for which at least one link could be found.
 
 
-### Transform tabular metadata to RDF and assign URIs for entities:
+### Transform tabular metadata to RDF and assign URIs for entities
 We implemented the data transformation of the original metadata using SPARQL CONSTRUCT and SPARQL INSERT queries in [Ontotext's GraphDB graph database](https://graphdb.ontotext.com).
 
   1. Clean up the OpenAIRE dataset (csv-file) entries and adapt the metadata entries of the size property to DCAT: [``preprocessing_OpenAIRE.py``](dskg-construction/preprocessing_OpenAIRE.py)
@@ -40,14 +40,14 @@ The SPARQL INSERT queries are identical except for the replacement of the keywor
  
 
   
-### Author Disambiguation:
+### Author Disambiguation
  1. Perform a [SPARQL Querie](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
  2. Calculate the LDA vectors for the data sets and load it into the dskg-beat-version for the author disambiguation with the Jupyter Notebook [``LDA-Modell.ipynb``](author-disambiguation/LDA-model/LDA-Modell.ipynb).
  3. Perfom the author disambiguation with the Jupyter Notebook [``author_disambiguation.ipynb``](author-disambiguation/author_disambiguation.ipynb). use the dskg-beat-version from the LDA-Modell as input.
     The Code first creates a [txt-file](author-disambiguation/data/Author_Disambiguation.txt) that contains all the necessary information for the author disambiguation which is then used to perform the author disambiguation.
 
   
-## Linking the authors of the DSKG to ORCID:
+## Linking the authors of the DSKG to ORCID
   1. perform a [SPARQL Querie](linking-to-ORCID/01SPARQL_author_profiles.txt) over the dskg to get a table with the authors profiles from the knowledge graph.
   2. Query the titles of the linked papers using the MAKG SPARQL endpoint: [``02MAKG_paper_titels.py``](linking-to-ORCID/02MAKG_paper_titels.py)
   3. Query of author names via the ORCID API: [``03ORCID_API.py``](linking-to-ORCID/03ORCID_API.py)
