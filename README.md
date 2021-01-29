@@ -5,11 +5,11 @@ We present an approach for constructing an RDF knowledge graph for Datasets. To 
 We identify all publications out of 146 million scientific publications which contain mentions of datasets, and establish links between the dataset and publication representations in the [Microsoft Academic Knowledge Graph](http://ma-graph.org). As the author names of datasets can be ambiguous, we develop and evaluate a method for author name disambiguation and enrich the knowledge graph with links to [ORCID](https://orcid.org). Overall, our knowledge graph contains 2,208 datasets with associated properties, as well as 813,551 links to scientific publications. It can be used for a variety of scenarios, facilitating advanced dataset search systems and new ways of measuring and awarding the provisioning of datasets.
 The constructed dataset knowledge graph (DSKG) is publicly available at [http://dskg.org](http://dskg.org).
 
-
+<figcaption align="left">Schema auf the DSKG</figcaption>
 <p align="left">
   <img width="575" height="451" src="dskg-construction/DSKG_Schema.png">
 </p>
-<figcaption align="left">Schema auf the DSKG</figcaption>
+
 
 
 The repository provides all the scripts needed to create the knowledge graph semi-automatically. The following manuel explains how to create the knowledge graph. 
