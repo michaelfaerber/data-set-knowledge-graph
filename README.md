@@ -35,18 +35,16 @@ We implemented the data transformation of the original metadata using SPARQL CON
   
 Note on using SPARQL CONSTRUCT and INSERT queries in GraphDB:
 The SPARQL INSERT queries are identical except for the replacement of the keyword (INSERT instead of CONSTRUCT, the removal of the LIMIT 100 restriction and the addition of the corresponding SPARQL endpoint within the WHERE clause: ``WHERE { SERVICE <ontorefine:99999999999> {...} }``.
-99999999999 is an example for a SPARQL endpoint in GraphDB.
+``<ontorefine:99999999999>`` is an example for a SPARQL endpoint in GraphDB.
   
  
 
   
 ### Author Disambiguation:
- 1. LDA-Modell
- 1.1 Perform a [SPARQL Querie](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
- 1.2 Calculate the LDA vectors for the data sets and load it into the dskg-beat-version for the author disambiguation with the Jupyter Notebook [LDA-Modell.ipynb](author-disambiguation/LDA-model/LDA-Modell.ipynb).
- 
- 2. Perfom the author disambiguation with the Jupyter Notebook [](). use the dskg-beat-version from the LDA-Modell as input.
-    The Code first creates a txt-file that contains all the necessary information for the author disambiguation which is then used to perform the author disambiguation.
+ 1. Perform a [SPARQL Querie](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
+ 2. Calculate the LDA vectors for the data sets and load it into the dskg-beat-version for the author disambiguation with the Jupyter Notebook [``LDA-Modell.ipynb``](author-disambiguation/LDA-model/LDA-Modell.ipynb).
+ 3. Perfom the author disambiguation with the Jupyter Notebook [``author_disambiguation.ipynb``](author-disambiguation/author_disambiguation.ipynb). use the dskg-beat-version from the LDA-Modell as input.
+    The Code first creates a [txt-file](author-disambiguation/data/Author_Disambiguation.txt) that contains all the necessary information for the author disambiguation which is then used to perform the author disambiguation.
 
   
 ## Linking the authors of the DSKG to ORCID:
