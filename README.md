@@ -13,12 +13,13 @@ We use the following database with metadata about datasets for the creation of t
 
 ### Identify publications from the MAKG which contain mentions of datasets:
 
+
 ### Transform tabular metadata to RDF and assign URIs for entities:
 We implemented the data transformation of the original metadata using SPARQL CONSTRUCT and SPARQL INSERT queries in [Ontotext's GraphDB graph database](https://graphdb.ontotext.com).
 
   1. Modify metadata entries according to DCTA (e.g. byteSize). Classification of metadata entities.
   2. Create csv-beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet (Beta_Version_DSKG_NoIDs.csv)
-  3. FOS
+  3. FOS: input file: PaperFieldsOfStudy.txt from the MAG
   4. Perform author disambiguation
   5. Name the resources with unique URIs (use results from disambiguation)
   6. Create a CSV file with the metadata entries and URIs for each class of entities. 
