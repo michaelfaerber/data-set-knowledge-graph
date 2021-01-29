@@ -26,9 +26,8 @@ We implemented the data transformation of the original metadata using SPARQL CON
 
   1. Clean up the OpenAIRE dataset (csv-file) entries and adapt the metadata entries of the size property to DCAT: [``preprocessing_OpenAIRE.py``](dskg-construction/preprocessing_OpenAIRE.py)
   2. Perfom the classification of the metadata entries for OpenAIRE and Wikidata according to DCAT: [``classification_resources.py``](dskg-construction/classification_resources.py)
-  3. In GraphDB: Create beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet. The creation of the dskg-beta-version is realized with SPARQL CONSTRUCT and INSERT ([``SPARQL_CONSTRUCT_openAIRE_beta_version.txt``](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_openAIRE_beta_version.txt) and  [``SPARQL_CONSTRUCT_wikidata_beta_version.txt``](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_wikidata_beta_version.txt)) queries for the OpenAIRE and Wikidata dataset in tabular form (csv-files). For the further steps, the beta version of the dskg is compiled as a table form using a [SPARQL SELECT]() query in GraphDB.
+  3. In GraphDB: Create beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet. The creation of the dskg-beta-version is realized with SPARQL CONSTRUCT and INSERT ([``SPARQL_CONSTRUCT_openAIRE_beta_version.txt``](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_openAIRE_beta_version.txt) and  [``SPARQL_CONSTRUCT_wikidata_beta_version.txt``](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_wikidata_beta_version.txt)) queries for the OpenAIRE and Wikidata dataset in tabular form (csv-files). For the further steps, the beta version of the dskg is compiled as a table form using a [SPARQL SELECT](dskg-construction/dskg_table_format.txt) query in GraphDB.
   
-
   4. FOS: input file: PaperFieldsOfStudy.txt from the MAG / Jupiter Notebook
   5. Perform author disambiguation
   6. Name the resources with unique URIs (use results from disambiguation)
