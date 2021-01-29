@@ -36,7 +36,7 @@ while i < len(df):
     for uri in mag_uris_list:
         title = sparql_PaperTitle(uri)
         if len(title) > 1:
-            df["paper_title"][i] += df["paper_title"][i] + title + "; "
+            df["paper_title"][i] = df["paper_title"][i] + title + "; "
         
     max_len = len(str(df["paper_title"][i]))
     unwanted_cut_off = max_len - 2
