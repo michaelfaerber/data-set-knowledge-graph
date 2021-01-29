@@ -12,6 +12,12 @@ The constructed dataset knowledge graph (DSKG) is publicly available at [http://
 
 <figcaption align="middle">Schema auf the DSKG</figcaption>
 
+<figure>
+    <img width="575" height="451" src="dskg-construction/DSKG_Schema.png"
+         alt="Elephant at sunset">
+    <figcaption>An elephant at sunset</figcaption>
+</figure>
+    
 
 The repository provides all the scripts needed to create the knowledge graph semi-automatically. The following manuel explains how to create the knowledge graph. 
 
