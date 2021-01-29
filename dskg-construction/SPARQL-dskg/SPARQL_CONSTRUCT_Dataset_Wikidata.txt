@@ -1,0 +1,167 @@
+PREFIX mydata: <http://example.com/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX spif: <http://spinrdf.org/spif#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX spin: <http://spinrdf.org/spin#>
+PREFIX adms: <https://www.w3.org/ns/adms#>
+
+CONSTRUCT {
+  ?datasetiri rdf:type dcat:Dataset ;
+      dct:title ?itemLabel ;
+      dct:description ?description ;
+      dct:alternative ?itemAltLabel;
+      dct:modified ?dateModified;
+      dcat:keyword ?mainSubject ;
+      dct:language ?language ;
+      adms:identifier ?source ;
+      dct:issued ?publicationDate ;
+      dcat:landingPage ?owebsite ;
+      dcat:landingPage ?workURL ;
+      dcat:landingPage ?wikipedia ;
+      dcat:theme ?makg_discipline;
+      dct:source ?source ;
+      dct:creator ?creatorPersoniri ;
+      dct:creator ?creatorOrganizationiri ;
+      dct:creator ?creatorOtheriri ;
+      dct:creator ?creatorStringPersoniri ;
+      dct:creator ?creatorStringOrganizationiri ;
+      dct:creator ?creatorStingOtheriri ;
+      dct:publisher ?publisherOrganizationiri ;
+      dct:publisher ?publisherOtheriri ;
+      dct:contributor ?contributorOrganizationiri ;
+      dct:contributor ?contributorOtheriri ;
+      dcat:distribution ?distributioniri ;
+      dct:isReferencedBy ?MAGConnection.
+
+  ?creatorPersoniri rdf:type foaf:Person ;
+      foaf:name ?authorPerson .
+  
+  ?creatorOrganizationiri rdf:type foaf:Organization ;
+      foaf:name ?authorOrganization . 
+
+  ?creatorOtheriri rdf:type foaf:Agent ;
+      foaf:name ?authorOther .
+
+  ?publisherOrganizationiri rdf:type foaf:Organization ;
+      foaf:name ?publisherOrganization .
+  ?publisherOtheriri rdf:type foaf:Agent ;
+      foaf:name ?publisherOther .
+  
+  ?contributorOrganizationiri rdf:type foaf:Organization ;
+      foaf:name ?contributorOrganization .
+  ?contributorOtheriri rdf:type foaf:Agent ;
+      foaf:name ?contributorOther .
+
+  ?distributioniri rdf:type dcat:Distribution ;
+      dcat:byteSize ?dataSize ;
+      dct:format ?format ;
+      dct:licence ?license ;
+      dcat:accessURL ?url .
+
+} WHERE {
+  ?c mydata:itemLabel ?itemLabelprep ;
+     mydata:description ?descriptionprep ;
+     mydata:rowNumber ?rowNumber ;
+     mydata:item ?source .
+  
+  bind(STRLANG(?descriptionprep, "en") AS ?description)
+  bind(STRLANG(?itemLabelprep, "en") AS ?itemLabel)
+  
+  ?c mydata:MAGConnection ?MAGConnectionprep .
+     bind(str(?MAGConnectionprep) as ?MAGConnectionprepstr)
+     OPTIONAL { ?MAGConnectiona spif:split (?MAGConnectionprepstr ", ") 
+     bind(iri(concat("http://ma-graph.org/entity/", spif:encodeURL(?MAGConnectiona))) as ?MAGConnection) }
+  
+  OPTIONAL { ?c mydata:MAG_Disciplines_Absolute ?makg_disciplineprep .
+  bind(str(?makg_disciplineprep) as ?makg_disciplineprepstr)
+  OPTIONAL { ?makg_disciplinea spif:split (?makg_disciplineprepstr ", ") 
+  bind(iri(concat("http://ma-graph.org/entity/", spif:encodeURL(?makg_disciplinea))) as ?makg_discipline) } }
+
+  Optional { ?c mydata:dateModified ?dateModifiedprep . }
+ 
+  Optional {?c mydata:owebsite ?owebsiteprep .
+  Optional { bind(str(?owebsiteprep) as ?owebsiteprepstr)
+  Optional {  ?owebsitea spif:split (?owebsiteprepstr ", ") 
+  bind(iri(?owebsitea) as ?owebsite) } } }
+     
+  Optional {?c mydata:workURL ?workURLprep .
+  Optional { bind(str(?workURLprep) as ?workURLprepstr)
+  Optional {  ?workURLa spif:split (?workURLprepstr ", ")
+  bind(iri(?workURLa) as ?workURL) } } }
+  
+  Optional {?c mydata:wikipedia ?wikipediaprep .
+  Optional { bind(str(?wikipediaprep) as ?wikipediaprepstr)
+  Optional {  ?wikipediaa spif:split (?wikipediaprepstr ", ") 
+  bind(iri(?wikipediaa) as ?wikipedia) } } }
+ 
+  Optional {?c mydata:itemAltLabel ?itemAltLabelprep .
+  Optional { ?itemAltLabela spif:split (?itemAltLabelprep ", ") 
+  bind(STRLANG(?itemAltLabela, "en") AS ?itemAltLabel) } }   
+     
+  Optional { ?c mydata:publicationDate ?publicationDateprep .
+  Optional { ?publicationDate spif:split (?publicationDateprep ", ") } }        
+     
+  Optional { ?c mydata:language ?languageprep .
+  Optional { ?languagea spif:split (?languageprep ", ") }
+  bind(STRLANG(?languagea, "en") as ?language ) }
+     
+  Optional { ?c mydata:mainSubject ?mainSubjectprep .
+  Optional { ?mainSubjecta spif:split (?mainSubjectprep ", ") 
+  bind(STRLANG(?mainSubjecta, "en") AS ?mainSubject)} }
+     
+  Optional {?c mydata:license ?licenseprep .
+  Optional { ?license spif:split (?licenseprep ", ") } }
+     
+  Optional {?c mydata:dataSize ?dataSizeprep .
+  Optional { ?dataSize spif:split (?dataSizeprep ", ") } }
+     
+  Optional {?c mydata:format ?formatprep .
+  Optional { ?format spif:split (?formatprep ", ") } }
+
+  Optional {?c mydata:url ?urlprep .
+  Optional { bind(str(?urlprep) as ?urlprepstr)
+  Optional { ?urla spif:split (?urlprepstr ", ") 
+  bind(iri(?urla) as ?url)} }}
+
+  bind(spif:parseDate(?dateModifiedprep, "yyyy-MM-dd'T'HH:mm:ss") as ?dateModified)
+  
+  Optional { ?c mydata:creatorPersonID ?creatorPersonIDprep .   
+  OPTIONAL { ?creatorPersonID spif:split (?creatorPersonIDprep ", ") } }
+  
+  Optional { ?c mydata:creatorOrganizationID ?creatorOrganizationIDprep .   
+  OPTIONAL { ?creatorOrganizationID spif:split (?creatorOrganizationIDprep ", ") } }
+  
+  Optional { ?c mydata:creatorAgentID ?creatorAgentIDprep .   
+  OPTIONAL { ?creatorAgentID spif:split (?creatorAgentIDprep ", ") } }
+  
+  Optional {?c mydata:publisherOrganizationID ?publisherOrganizationIDprep .   
+  OPTIONAL { ?publisherOrganizationID spif:split (?publisherOrganizationIDprep ", ") } }
+  
+  Optional {?c mydata:publisherAgentID ?publisherAgentIDprep .   
+  OPTIONAL { ?publisherAgentID spif:split (?publisherAgentIDprep ", ") } }
+  
+  Optional {?c mydata:contributorOrganizationID ?contributorOrganizationIDprep .   
+  OPTIONAL { ?contributorOrganizationID spif:split (?contributorOrganizationIDprep ", ") } }
+
+  Optional {?c mydata:contributorAgentID ?contributorAgentIDprep .   
+  OPTIONAL { ?contributorAgentID spif:split (?contributorAgentIDprep ", ") } }
+  
+  bind(iri(concat("http://dskg.org/entity/dataset/", spif:encodeURL(?rowNumber + 450))) as ?datasetiri)
+
+  bind(iri(concat("http://dskg.org/entity/distribution/", spif:encodeURL(?rowNumber + 100450))) as ?distributioniri)
+
+
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/person/", spif:encodeURL(?creatorPersonID))) as ?creatorPersoniri) }
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/organization/", spif:encodeURL(?creatorOrganizationID))) as ?creatorOrganizationiri) }
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/agent/", spif:encodeURL(?creatorAgentID))) as ?creatorOtheriri) }
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/organization/", spif:encodeURL(?publisherOrganizationID))) as ?publisherOrganizationiri) }
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/agent/", spif:encodeURL(?publisherAgentID))) as ?publisherOtheriri) }
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/organization/", spif:encodeURL(?contributorOrganizationID))) as ?contributorOrganizationiri) }
+  OPTIONAL { bind(iri(concat("http://dskg.org/entity/agent/", spif:encodeURL(?contributorAgentID))) as ?contributorOtheriri) }
+} LIMIT 100
