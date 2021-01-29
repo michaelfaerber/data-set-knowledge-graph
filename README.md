@@ -12,12 +12,12 @@ We use the following database with metadata about datasets for the creation of t
 2. Wikidata-Dataset: We use instances of the classes of [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) which represent datasets. The instances of the [relevant classes](wikidata-dataset/SPARQL_wikidata_dataset.txt) and their properties can be accessed based on semantic queries via the publicly available [Wikidata SPARQL endpoint](https://query.wikidata.org).
 
 ### Identify publications from the MAG which contain mentions of datasets:
-We use a string-based algorithm to detect mentions of datasets in papers. We use the files containing the paper abstracts and citation context of the MAG-dump for the matching. For dataset from OpenAIRE, we use the following metadata information to recognize dataset in the files: ``title``, ``originalId`` and ``doi``. For dataset from Wikidata, we use: ``itemLabel``, ``altLabel``, ``officialWebsite``, ``workURL`` and ``url``.
+We use a string-based algorithm to detect mentions of datasets in papers. We use the files containing the paper abstracts and citation context of the MAG-dump for the matching. For dataset from OpenAIRE, we use the following metadata information to recognize dataset in the files: ``title``, ``originalId`` and ``doi``. For dataset from Wikidata, we use: ``itemLabel``, ``altLabel``, ``officialWebsite``, ``workURL`` and ``url``. [This](string-matching-MAKG-dumps/data) are the used files for the Matching.
 
-1. /data match_text_corpus.py
-2. string_based_matching_MAKG
-3. filterwords_matching
-4. MAKG_links_in_csv
+1. The first step is to filter out the most frequently used English words for the match. The following Script calculates this not considered intersection: ``string-matching-MAKG-dumps/match_text_corpus.py``
+2. For then run the script for the matching. MAG dumps are used as input and the output are text files with the matches found: ``string-matching-MAKG-dumps/string_based_matching_MAKG.py`` 
+3. After that, the results are filtered using the created filter list to reduce false matches: ``string-matching-MAKG-dumps/filterwords_matching.py``
+4. The following script inserts the found matches into these initial datasets (csv-files) of the OpenAIRE and Wikidata dataset: `string-matching-MAKG-dumps/MAKG_links_in_csv.py``
 
 
 ### Transform tabular metadata to RDF and assign URIs for entities:
