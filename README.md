@@ -18,7 +18,7 @@ We use a string-based algorithm to detect mentions of datasets in papers. We use
   1. The first step is to filter out the most frequently used English words for the match. The following Script calculates this not considered intersection: [``match_text_corpus.py``](string-matching-MAKG-dumps/match_text_corpus.py)
   2. For then run the script for the matching. MAG dumps are used as input and the output are text files with the matches found: [``string_based_matching_MAKG.py``](string-matching-MAKG-dumps/string_based_matching_MAKG.py)
   3. After that, the results are filtered using the created filter list to reduce false matches: [``filterwords_matching.py``](string-matching-MAKG-dumps/filterwords_matching.py)
-  4. The following script inserts the found matches into these initial datasets (csv-files) of the OpenAIRE and Wikidata dataset: [``MAKG_links_in_csv.py``](string-matching-MAKG-dumps/MAKG_links_in_csv.py)
+  4. The following script inserts the found matches into these initial datasets (csv-files) of the OpenAIRE and Wikidata dataset: [``MAKG_links_in_csv.py``](string-matching-MAKG-dumps/MAKG_links_in_csv.py). In the following we will only use the metadata records for which at least one link could be found.
 
 
 ### Transform tabular metadata to RDF and assign URIs for entities:
