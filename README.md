@@ -28,6 +28,8 @@ We implemented the data transformation of the original metadata using SPARQL CON
   2. Perfom the classification of the metadata entries for OpenAIRE and Wikidata according to DCAT: 
   3. Create csv-beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet (Beta_Version_DSKG_NoIDs.csv).
      transformation GraphDB, SPARQL, in ein repository
+     [openAIRE](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_openAIRE_beta_version.txt)
+     [wikidata](dskg-construction/SPARQL-dskg-beta-version/SPARQL_CONSTRUCT_wikidata_beta_version.txt)
   4. FOS: input file: PaperFieldsOfStudy.txt from the MAG / Jupiter Notebook
   5. Perform author disambiguation
   6. Name the resources with unique URIs (use results from disambiguation)
