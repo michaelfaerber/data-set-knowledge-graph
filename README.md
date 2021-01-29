@@ -42,13 +42,12 @@ The SPARQL INSERT queries are identical except for the replacement of the keywor
   
 ### Author Disambiguation:
  1. LDA-Modell
- 1.1 Perform a [SPARQL Querie]() over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
- 1.2 Calculate the LDA vectors for the data sets with the Jupyter Notebook [lda]().
+ 1.1 Perform a [SPARQL Querie](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
+ 1.2 Calculate the LDA vectors for the data sets and load it into the dskg-beat-version for the author disambiguation with the Jupyter Notebook [LDA-Modell.ipynb](author-disambiguation/LDA-model/LDA-Modell.ipynb).
+ 
+ 2. Perfom the author disambiguation with the Jupyter Notebook [](). use the dskg-beat-version from the LDA-Modell as input.
+    The Code first creates a txt-file that contains all the necessary information for the author disambiguation which is then used to perform the author disambiguation.
 
- 2.
- 2. Load all needed information for the disambiguation into the csv-file of the beta version of the DSKG
- 3. Create a txt-file that contains all the necessary information for the author disambiguation.
- 4. Perform the Diambiguation
   
 ## Linking the authors of the DSKG to ORCID:
   1. Create the authors profiles from the knowledge graph using a SAPRQL query. 
