@@ -24,8 +24,8 @@ We use a string-based algorithm to detect mentions of datasets in papers. We use
 ### Transform tabular metadata to RDF and assign URIs for entities:
 We implemented the data transformation of the original metadata using SPARQL CONSTRUCT and SPARQL INSERT queries in [Ontotext's GraphDB graph database](https://graphdb.ontotext.com).
 
-  1. The following script cleans up the OpenAIRE dataset (csv-file) entries and adapts the metadata entries of the size property to DCAT:
-  2. Performing the classification of the metadata entries for OpenAIRE and Wikidata: 
+  1. Clean up the OpenAIRE dataset (csv-file) entries and adapt the metadata entries of the size property to DCAT: [``preprocessing_OpenAIRE.py``](dskg-construction/preprocessing_OpenAIRE.py)
+  2. Perfom the classification of the metadata entries for OpenAIRE and Wikidata: 
   3. Create csv-beta version of the DSKG where the properties are mapped to DCAT but no URIs for the resources are assigned yet (Beta_Version_DSKG_NoIDs.csv).
      transformation GraphDB, SPARQL, in ein repository
   4. FOS: input file: PaperFieldsOfStudy.txt from the MAG / Jupiter Notebook
