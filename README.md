@@ -7,7 +7,7 @@ The constructed dataset knowledge graph (DSKG) is publicly available at [http://
 
 
 <p align="center">
-  <img width="958" height="752" src="dskg-construction/DSKG_Schema.png">
+  <img width="479" height="376" src="dskg-construction/DSKG_Schema.png">
 </p>
 
 
