@@ -48,7 +48,7 @@ The SPARQL INSERT querys are identical except for the replacement of the keyword
 
   
 ## Linking the authors of the DSKG to ORCID
-  1. perform a [SPARQL Query](linking-to-ORCID/01SPARQL_author_profiles.txt) over the dskg to get a table with the authors profiles from the knowledge graph.
+  1. Perform a [SPARQL Query](linking-to-ORCID/01SPARQL_author_profiles.txt) over the dskg to get a table with the authors profiles from the knowledge graph.
   2. Query the titles of the linked papers using the MAKG SPARQL endpoint: [``02MAKG_paper_titels.py``](linking-to-ORCID/02MAKG_paper_titels.py)
   3. Query of author names via the ORCID API: [``03ORCID_API.py``](linking-to-ORCID/03ORCID_API.py)
   4. Perform the linking to ORCID by running the Script that compares the author profiles: [``04linking_authors_to_orcid.py``](linking-to-ORCID/04linking_authors_to_orcid.py)
