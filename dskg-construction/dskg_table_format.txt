@@ -1,0 +1,74 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+select distinct ?dataset ?title ?description
+    (group_concat(distinct ?keyword;separator=", ") as ?keyword)
+    (group_concat(distinct ?alternative;separator=", ") as ?alternative)
+    (group_concat(distinct ?issued;separator=", ") as ?issued)
+    (group_concat(distinct ?modified;separator=", ") as ?modified)
+    (group_concat(distinct ?language;separator=", ") as ?language)
+    (group_concat(distinct ?landingPage;separator=", ") as ?landingPage)
+    (group_concat(distinct ?identifier;separator=", ") as ?identifier)
+    (group_concat(distinct ?accessRights;separator=", ") as ?accessRights)
+    (group_concat(distinct ?source;separator=", ") as ?source)
+
+
+	?distribution 
+	(group_concat(distinct ?byteSize;separator=", ") as ?byteSize)
+	?license
+    (group_concat(distinct ?format;separator=", ") as ?format)
+    (group_concat(distinct ?accessURL;separator=", ") as ?accessURL)
+    (group_concat(distinct ?creator;separator=", ") as ?creator)
+    (group_concat(distinct ?publisher;separator=", ") as ?publisher)
+    (group_concat(distinct ?contributor;separator=", ") as ?contributor)
+    (group_concat(distinct ?contactPoint;separator=", ") as ?contactPoint)
+    (group_concat(distinct ?creatorName;separator=", ") as ?creatorName)
+    (group_concat(distinct ?publisherName;separator=", ") as ?publisherName)
+    (group_concat(distinct ?contributorName;separator=", ") as ?contributorName)
+    (group_concat(distinct ?contactPointName;separator=", ") as ?contactPointName) 
+    (group_concat(distinct ?contactPointEmail;separator=", ") as ?contactPointEmail)
+    (group_concat(distinct ?theme;separator=", ") as ?theme)
+    
+
+
+where { 
+    ?dataset rdf:type  dcat:Dataset .
+        optional { ?dataset dct:title ?title . }
+    optional { ?dataset dct:description ?description . }       
+    optional { ?dataset dcat:keyword ?keyword . } 
+    
+    optional { ?dataset dct:alternative ?alternative . }
+    optional { ?dataset dct:issued ?issued . } 
+    optional { ?dataset dct:modified ?modified . } 
+    optional { ?dataset dct:language ?language . } 
+    optional { ?dataset dcat:landingPage ?landingPage . }
+    optional { ?dataset dct:identifier ?identifier . }        
+    optional { ?dataset dct:accessRights ?accessRights . }         
+    optional { ?dataset dct:source ?source . } 
+    optional { ?dataset dcat:theme ?theme . }
+    
+    optional { ?dataset dct:creator ?creator.
+               ?creator foaf:name ?creatorName}
+    optional { ?dataset dct:contributor ?contributor . 
+                ?contributor foaf:name ?contributorName}
+    optional { ?dataset dct:publisher ?publisher. 
+               ?publisher foaf:name ?publisherName}
+    optional { ?dataset dcat:contactPoint ?contactPoint . 
+        optional {?contactPoint vcard:fn ?contactPointName . }
+        optional {?contactPoint vcard:hasEmail ?contactPointEmail }}
+
+    ?dataset dcat:distribution ?distribution . 
+    optional { ?distribution dcat:byteSize ?byteSize . }
+    optional { ?distribution dcat:accessURL ?accessURL . }
+    optional { ?distribution dct:format ?format . }
+    optional { ?distribution dct:license ?license . }
+    
+
+
+   }
+group by ?dataset ?title ?description ?distribution ?license
