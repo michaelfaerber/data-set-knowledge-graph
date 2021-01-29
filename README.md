@@ -30,10 +30,9 @@ We implemented the data transformation of the original metadata using SPARQL CON
   4. Use the file ``PaperFieldsOfStudy.txt`` from the MAG-dump, the dskg-beta-version and the Jupyter Notebook [``fields_of_application.ipynb``](dskg-construction/fields_of_application.ipynb) to determine the fields of applications of the datasets and add it to the dskg-beta-version.
   5. Perform the author disambiguation explained in the paragraph below.
   6. Assignment of unique URIs for the entities in the dskg-beta-version (uses the results of the performed author disambiguation): [assign_uris_for_entities.py](dskg-construction/assign_uris_for_entities.py)
-
-  7.
-  7. Create a CSV file with the metadata entries and URIs for each class of entities.
-  8. Load csv-files into a [GraphDB]((https://graphdb.ontotext.com) Repository and transform the table data into RDF using SPARQl CONSTRUCT(link) and SPARQl INSERT(link) queries.
+  7. Load the enriched information from the dskg-beta version into the classified OpenAIRE and Wikidata dataset for the final construction of the KG. Create csv files from the dskg-beta-version for each classes of entities in the metadata: [``final_csv_files_transformation_dcat.ipynb``](dskg-construction/final_csv_files_transformation_dcat.ipynb)
+  
+  8. Load the generated [csv files]() into a GraphDB Repository and transform the table data into RDF using SPARQl CONSTRUCT(link) and SPARQl INSERT(link) queries to construct the final DSKG.
   INSERT: SERVICE <ontorefine:9999999999999> the SPARQL endpoint
 
   
