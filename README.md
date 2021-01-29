@@ -6,8 +6,8 @@ We identify all publications out of 146 million scientific publications which co
 The constructed dataset knowledge graph (DSKG) is publicly available at [http://dskg.org](http://dskg.org).
 
 
-<p align="center">
-  <img width="479" height="376" src="dskg-construction/DSKG_Schema.png">
+<p align="left">
+  <img width="575" height="451" src="dskg-construction/DSKG_Schema.png">
 </p>
 
 
