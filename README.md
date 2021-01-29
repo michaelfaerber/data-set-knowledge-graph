@@ -41,7 +41,11 @@ The SPARQL INSERT queries are identical except for the replacement of the keywor
 
   
 ### Author Disambiguation:
- 1. Calculate the LDA vectors for the data sets (with the LDA model)
+ 1. LDA-Modell
+ 1.1 Perform a [SPARQL Querie]() over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
+ 1.2 Calculate the LDA vectors for the data sets with the Jupyter Notebook [lda]().
+
+ 2.
  2. Load all needed information for the disambiguation into the csv-file of the beta version of the DSKG
  3. Create a txt-file that contains all the necessary information for the author disambiguation.
  4. Perform the Diambiguation
