@@ -38,11 +38,11 @@ We implemented the data transformation of the original metadata using SPARQL CON
   4. Use the file ``PaperFieldsOfStudy.txt`` from the MAG-dump, the dskg-beta-version and the Jupyter Notebook [``fields_of_application.ipynb``](dskg-construction/fields_of_application.ipynb) to determine the fields of applications of the datasets and add it to the dskg-beta-version.
   5. Perform the author disambiguation explained in the paragraph below.
   6. Assignment of unique URIs for the entities in the dskg-beta-version (uses the results of the performed author disambiguation): [assign_uris_for_entities.py](dskg-construction/assign_uris_for_entities.py)
-  7. Load the enriched information from the dskg-beta version into the classified OpenAIRE and Wikidata dataset for the final construction of the KG. Create csv files from the dskg-beta-version for each classes of entities in the metadata: [``final_csv_files_transformation_dcat.ipynb``](dskg-construction/final_csv_files_transformation_dcat.ipynb)
-  8. Load the generated [csv files](dskg-construction/csv-files/) into a GraphDB Repository and transform the table data into RDF using the [SPARQl CONSTRUCT and SPARQl INSERT](dskg-construction/SPARQL-dskg/) querys to construct the final DSKG. 
+  7. Load the enriched information from the dskg-beta version into the classified OpenAIRE and Wikidata dataset for the final construction of the knowledge graph. Create csv-files from the dskg-beta-version for each classes of entities in the metadata: [``final_csv_files_transformation_dcat.ipynb``](dskg-construction/final_csv_files_transformation_dcat.ipynb)
+  8. Load the generated [csv-files](dskg-construction/csv-files/) into a GraphDB Repository and transform the table data into RDF using the [SPARQl CONSTRUCT and SPARQl INSERT](dskg-construction/SPARQL-dskg/) querys to construct the final DSKG. 
   
 Note on using SPARQL CONSTRUCT and INSERT querys in GraphDB:
-The SPARQL INSERT querys are identical except for the replacement of the keyword (INSERT instead of CONSTRUCT, the removal of the LIMIT 100 restriction and the addition of the corresponding SPARQL endpoint within the WHERE clause: ``WHERE { SERVICE <ontorefine:99999999999> {...} }``.
+The SPARQL INSERT querys are identical to the CONSTRUCT querys, except for the replacement of the keyword (INSERT instead of CONSTRUCT, the removal of the LIMIT 100 restriction and the addition of the corresponding SPARQL endpoint within the WHERE clause: ``WHERE { SERVICE <ontorefine:99999999999> {...} }``.
 ``<ontorefine:99999999999>`` is an example for a SPARQL endpoint in GraphDB.
   
  
@@ -51,12 +51,12 @@ The SPARQL INSERT querys are identical except for the replacement of the keyword
 ### Author Disambiguation
  1. Perform a [SPARQL Query](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
  2. Calculate the LDA vectors for the datasets and load it into the dskg-beat-version for the author disambiguation with the Jupyter Notebook [``LDA-Modell.ipynb``](author-disambiguation/LDA-model/LDA-Modell.ipynb).
- 3. Perfom the author disambiguation with the Jupyter Notebook [``author_disambiguation.ipynb``](author-disambiguation/author_disambiguation.ipynb). Use the dskg-beta-version from the LDA-Modell as input.
+ 3. Perfom the author disambiguation with the Jupyter Notebook [``author_disambiguation.ipynb``](author-disambiguation/author_disambiguation.ipynb). Use the dskg-beta-version from the LDA model as input.
     The Code first creates a [txt-file](author-disambiguation/data/Author_Disambiguation.txt) that contains all the necessary information for the author disambiguation which is then used to perform the author disambiguation.
 
   
 ## Linking the authors of the DSKG to ORCID
-  1. Perform a [SPARQL Query](linking-to-ORCID/01SPARQL_author_profiles.txt) over the dskg to get a table with the authors profiles from the knowledge graph.
+  1. Perform a [SPARQL Query](linking-to-ORCID/01SPARQL_author_profiles.txt) over the DSKG to get a table (csv-file) with the author profiles from the knowledge graph.
   2. Query the titles of the linked papers using the MAKG SPARQL endpoint: [``02MAKG_paper_titels.py``](linking-to-ORCID/02MAKG_paper_titels.py)
   3. Query of author names via the ORCID API: [``03ORCID_API.py``](linking-to-ORCID/03ORCID_API.py)
   4. Perform the linking to ORCID by running the Script that compares the author profiles: [``04linking_authors_to_orcid.py``](linking-to-ORCID/04linking_authors_to_orcid.py)
