@@ -51,7 +51,7 @@ The SPARQL INSERT querys are identical except for the replacement of the keyword
 ### Author Disambiguation
  1. Perform a [SPARQL Query](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
  2. Calculate the LDA vectors for the datasets and load it into the dskg-beat-version for the author disambiguation with the Jupyter Notebook [``LDA-Modell.ipynb``](author-disambiguation/LDA-model/LDA-Modell.ipynb).
- 3. Perfom the author disambiguation with the Jupyter Notebook [``author_disambiguation.ipynb``](author-disambiguation/author_disambiguation.ipynb). use the dskg-beat-version from the LDA-Modell as input.
+ 3. Perfom the author disambiguation with the Jupyter Notebook [``author_disambiguation.ipynb``](author-disambiguation/author_disambiguation.ipynb). Use the dskg-beat-version from the LDA-Modell as input.
     The Code first creates a [txt-file](author-disambiguation/data/Author_Disambiguation.txt) that contains all the necessary information for the author disambiguation which is then used to perform the author disambiguation.
 
   
