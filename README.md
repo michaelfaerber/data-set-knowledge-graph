@@ -1,4 +1,4 @@
-# Dataset Knowledge Graph (DSKG)
+# Data Set Knowledge Graph (DSKG)
 
 ## Abstract
 We present an approach for constructing an RDF knowledge graph for Datasets. To build the knowledge graph, we use datasets registered in OpenAIRE and Wikidata.
