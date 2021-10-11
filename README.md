@@ -45,8 +45,6 @@ Note on using SPARQL CONSTRUCT and INSERT querys in GraphDB:
 The SPARQL INSERT querys are identical to the CONSTRUCT querys, except for the replacement of the keyword (INSERT instead of CONSTRUCT, the removal of the LIMIT 100 restriction and the addition of the corresponding SPARQL endpoint within the WHERE clause: ``WHERE { SERVICE <ontorefine:99999999999> {...} }``.
 ``<ontorefine:99999999999>`` is an example for a SPARQL endpoint in GraphDB.
   
- 
-
   
 ### Author Disambiguation
  1. Perform a [SPARQL Query](author-disambiguation/LDA-model/lda_table_SPARQL.txt) over the dskg-beta-version to get a table with the relevant information of the datasets for the LDA model.
@@ -63,6 +61,24 @@ The SPARQL INSERT querys are identical to the CONSTRUCT querys, except for the r
   5. Insert the found ORCID IDs of the authors into the csv-file which contains the metadata of the authors: [``05add_ORCID_IDs_to_csv.py``](linking-to-ORCID/05add_ORCID_IDs_to_csv.py).
   6. Add the ORCID-IDs to the knowledge graph in GraphDB using [SPARQL CONSTRUCT and SPARQL INSERT](dskg-construction/SPARQL-dskg/CONSTRUCT_CreatorPerson.txt).
 
- 
-  
 
+## Demo 
+See http://dskg.org/.
+
+## Contact
+The system has been designed and implemented by Michael Färber and David Lamprecht. Feel free to reach out to us:
+
+[Michael Färber](https://sites.google.com/view/michaelfaerber), michael.faerber@kit&#46;edu
+
+## How to Cite
+Please cite our [paper](https://www.aifb.kit.edu/images/6/66/DSKG_QSS2021_v0.pdf) as follows:
+```
+@article{Faerber2021DSKG,
+  author    = {Michael F{\"{a}}rber and
+               David Lamprecht},
+  title     = "{The Data Set Knowledge Graph: Creating a Linked Open Data Source for Data Sets}",
+  journal = "Quantitative Science Studies", 
+  publisher = "MIT Press", 
+  year = "2021"
+}
+```
