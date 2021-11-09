@@ -77,8 +77,11 @@ Please cite our [paper](https://www.aifb.kit.edu/images/6/66/DSKG_QSS2021_v0.pdf
   author    = {Michael F{\"{a}}rber and
                David Lamprecht},
   title     = "{The Data Set Knowledge Graph: Creating a Linked Open Data Source for Data Sets}",
-  journal = "Quantitative Science Studies", 
+  journal   = "Quantitative Science Studies", 
   publisher = "MIT Press", 
-  year = "2021"
+  year      = "2021",
+  issn      = {2641-3337},
+  doi       = {10.1162/qss_a_00161},
+  url       = {https://doi.org/10.1162/qss\_a\_00161}
 }
 ```
