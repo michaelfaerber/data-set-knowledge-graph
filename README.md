@@ -76,7 +76,6 @@ Please cite our [paper](https://direct.mit.edu/qss/article/2/4/1324/108051/The-d
 @article{Faerber2021DSKG,
   author    = {Michael F{\"{a}}rber and
                David Lamprecht},
-               David Lamprecht},
   title     = "{The data set knowledge graph: Creating a linked open data source for data sets}",
   journal   = {Quantitative Science Studies}, 
   publisher = {MIT Press}, 
