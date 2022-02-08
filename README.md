@@ -71,15 +71,19 @@ The system has been designed and implemented by Michael Färber and David Lampre
 [Michael Färber](https://sites.google.com/view/michaelfaerber), michael.faerber@kit&#46;edu
 
 ## How to Cite
-Please cite our [paper](https://www.aifb.kit.edu/images/6/66/DSKG_QSS2021_v0.pdf) as follows:
+Please cite our [paper](https://direct.mit.edu/qss/article/2/4/1324/108051/The-data-set-knowledge-graph-Creating-a-linked) as follows:
 ```
 @article{Faerber2021DSKG,
   author    = {Michael F{\"{a}}rber and
                David Lamprecht},
-  title     = "{The Data Set Knowledge Graph: Creating a Linked Open Data Source for Data Sets}",
-  journal   = "Quantitative Science Studies", 
-  publisher = "MIT Press", 
-  year      = "2021",
+               David Lamprecht},
+  title     = "{The data set knowledge graph: Creating a linked open data source for data sets}",
+  journal   = {Quantitative Science Studies}, 
+  publisher = {MIT Press}, 
+  volume    = {2},
+  number    = {4},
+  pages     = {1324-1355},
+  year      = {2022},
   issn      = {2641-3337},
   doi       = {10.1162/qss_a_00161},
   url       = {https://doi.org/10.1162/qss\_a\_00161}
