@@ -71,7 +71,7 @@ The system has been designed and implemented by Michael Färber and David Lampre
 [Michael Färber](https://sites.google.com/view/michaelfaerber), michael.faerber@kit&#46;edu
 
 ## How to Cite
-Please cite our [paper](https://direct.mit.edu/qss/article/2/4/1324/108051/The-data-set-knowledge-graph-Creating-a-linked) as follows:
+Please cite our [paper](https://direct.mit.edu/qss/article-pdf/2/4/1324/1986216/qss_a_00161.pdf) as follows:
 ```
 @article{Faerber2021DSKG,
   author    = {Michael F{\"{a}}rber and
