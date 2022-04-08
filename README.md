@@ -82,7 +82,7 @@ Please cite our [paper](https://direct.mit.edu/qss/article-pdf/2/4/1324/1986216/
   volume    = {2},
   number    = {4},
   pages     = {1324-1355},
-  year      = {2022},
+  year      = {2021},
   issn      = {2641-3337},
   doi       = {10.1162/qss_a_00161},
   url       = {https://doi.org/10.1162/qss\_a\_00161}
